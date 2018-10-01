@@ -1,0 +1,16 @@
+SELECT ?item ?itemLabel ?valuesLabel ?authorLabel ?publishedInLabel ?pp {
+  ?item wdt:P31 ?values .
+  ?item wdt:P50/wdt:P98* ?author .
+  ?author wdt:P463 wd:Q27639076 .
+  
+  OPTIONAL {
+    ?item wdt:P1433 ?publishedIn .
+    ?item wdt:P1104 ?pp .
+  }
+  
+  VALUES ?values { wd:Q13442814 wd:Q571 wd:Q187685 wd:Q1980247 wd:Q265158 wd:Q23927052}
+  
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "es". }
+}
+
+ORDER BY ?authorLabel
