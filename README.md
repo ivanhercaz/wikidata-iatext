@@ -1,5 +1,8 @@
 ## Wikidata-IATEXT
 
+[![DOI](https://zenodo.org/badge/151055430.svg)](https://zenodo.org/badge/latestdoi/151055430)
+
+
 Wikidata-IATEXT fue un proyecto que consistió en la curación y estructuración de datos relacionados con los miembros del Instituto de Análisis y Aplicaciones Textuales (IATEXT) de la ULPGC. El objetivo fue crear los elementos de todos los investigadores y sus respectivas publicaciones, tantas como fuese posible.
 
 Se dividió en dos fases. La priemra dedacada a los investigadores y la segunda a las publicaciones. La primera consistió en la creación y modificación (ado que ya había elementos creados) de un total de 64 elementos. La segunda fase no tuvo límite debido a que no había una base de datos ni proyecto en el que aclarar esta cantidad y extraer los datos. Véase el apartado *[Resultados. Problemas principales](#Problemas_principales)*.
