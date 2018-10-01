@@ -1,4 +1,5 @@
-#Number of publications of the IATEXT members per year 
+# Number of publications of the IATEXT members per year 
+# This query needs to be reviewed because it doesn't show the actual amount of items by author-year.
 #defaultView:BarChart
 
 SELECT ?year (COUNT(?_author) AS ?count ) (SAMPLE(?_authorLabel) AS ?authorLabel )  WHERE {
