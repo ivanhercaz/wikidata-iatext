@@ -2,11 +2,12 @@
 
 Wikidata-IATEXT fue un proyecto que consistió en la curación y estructuración de datos relacionados con los miembros del Instituto de Análisis y Aplicaciones Textuales (IATEXT) de la ULPGC. El objetivo fue crear los elementos de todos los investigadores y sus respectivas publicaciones, tantas como fuese posible.
 
-Se dividió en dos fases. La priemra dedacada a los investigadores y la segunda a las publicaciones. La primera consistió en la creación y modificación (ado que ya había elementos creados) de un total de 64 elementos. La segunda fase no tuvo límite debido a que no había una base de datos ni proyecto en el que aclarar esta cantidad y extraer los datos. Véase el apartado *[Resultados. Problemas principales](#Problemas principales)*.
+Se dividió en dos fases. La priemra dedacada a los investigadores y la segunda a las publicaciones. La primera consistió en la creación y modificación (ado que ya había elementos creados) de un total de 64 elementos. La segunda fase no tuvo límite debido a que no había una base de datos ni proyecto en el que aclarar esta cantidad y extraer los datos. Véase el apartado *[Resultados. Problemas principales](#Problemas_principales)*.
 
 El [informe final](https://www.wikidata.org/wiki/User:Iván_Hernández_Cazorla/IATEXT) se encuentra en inglés en Wikidata. Si el proyecto te parece interesante, te animo a leer el informe ya que está más ilustrado (cuadros y tablas) que en este archivo.
 
 ### Organización del repositorio
+
  - Hay dos carpetas principales: ``researchers`` y ``publications`` en las que se encuentran los documentos respectivos a ambos sujetos. Los documentos que amparen a ambos se guardarán en la raíz del repositorio hasta que organice mejor el repositorio.
  - Ambos CSV, [``researchers.csv``](researchers/researchers.csv) y [``publications.csv``](publications/publications.csv), fueron extraídos a partir de sus respectivas consultas SPARQL en el [Wikidata Query Service](https://query.wikidata.org) el 1 de octubre de 2018.
  - Si las consultas SPARQL se ejecutan en el [Wikidata Query Service](https://query.wikidata.org) es posible que arrojen más resultados que los que se almacenan en los CSV, dado que pueden haberse creado más elementos que cumplan esas condiciciones.
