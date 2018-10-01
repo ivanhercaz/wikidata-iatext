@@ -1,0 +1,14 @@
+#Number of publications of the IATEXT members per year 
+#defaultView:BarChart
+
+SELECT ?year (COUNT(?_author) AS ?count ) (SAMPLE(?_authorLabel) AS ?authorLabel )  WHERE {
+  ?item wdt:P31 ?_itemVal;
+        wdt:P577 ?_publication_date;
+        wdt:P50 ?_author.
+  ?_author wdt:P463 wd:Q27639076.
+  VALUES ?_itemVal { wd:Q13442814 wd:Q1980247 wd:Q571 wd:Q187685 }
+  BIND(str(YEAR(?_publication_date)) AS ?year)
+  SERVICE wikibase:label { bd:serviceParam wikibase:language "[AUTO_LANGUAGE],en". 
+                         ?_author rdfs:label ?authorLabel.}
+}
+GROUP BY ?authorLabel ?year
