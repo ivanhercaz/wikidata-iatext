@@ -37,7 +37,7 @@ Hasta el 21 de septimebre de 2018 se realizaron más de 43&nbsp;429 ediciones en
 La fase uno terminó con la creación de los elementos para los 52 investigadores de plantilla, 3 posdoctorales, 2 predoctorales y 7 afiliados.
 La fase dos terminó con 923-1079 elementos correspondientes a las publicaciones de los miembros del IATEXT. Además, durante esta fase han sido creados elementos que no están relacionados directamente con el IATEXT. Por ej., revistas científicas, obras coordinadas por investigadores externos y supervisores doctorales, entre otros.
 
- - En los archivos [``researchers.csv``](researchers/researchers.csv] y [``publications.csv``](publications/publications.csv) están los resultados.
+ - En los archivos [``researchers.csv``](researchers/researchers.csv) y [``publications.csv``](publications/publications.csv) están los resultados.
  - En el apartado *[Resultados](https://wikidata.org/wiki/User:Iván_Hernández_Cazorla/IATEXT#Results)* del informe final en Wikidata hay dos tablas que comprueban cada día si hay nuevos elementos que reunan las condiciones de la consulta SPARQL introducida. Probablemente en un futuro haya más elementos de los que se han elaborado en este proyecto.
 
 #### Problemas principales
