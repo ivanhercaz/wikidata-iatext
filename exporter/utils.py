@@ -1,9 +1,24 @@
 from subprocess import run, DEVNULL
 from subprocess import CalledProcessError
 
-import sys
+import re, shutil, sys
 
 class Utils:
+    def prepareQuery(self, query):
+        queryDuplicated = re.sub(r"\.rq", "-duplicated.rq", query)
+
+        shutil.copyfile(query, queryDuplicated)
+
+        with open(queryDuplicated, "r+") as queryFile:
+            print("query abierta")
+            queryRead = queryFile.read()
+            replacement = re.sub(r" \?item[A-Z]\w*", "", str(queryRead))
+            queryFile.write(replacement)
+
+    def removeQuery(self, query):
+        query = "{}.rq".format(query)
+        print(query)
+
     def checkCommand(self, command, **kwargs):
         if "commandName" in kwargs:
             commandName = kwargs["commandName"]
