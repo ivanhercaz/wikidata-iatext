@@ -7,13 +7,27 @@ class Utils:
     def prepareQuery(self, query):
         queryDuplicated = re.sub(r"\.rq", "-duplicated.rq", query)
 
-        shutil.copyfile(query, queryDuplicated)
+        # shutil.copyfile(query, queryDuplicated)
 
+        with open(query, "r") as queryFile:
+            queryContent = queryFile.read()
+            print(queryContent)
+
+        replacement = re.sub(r" \?item[A-Z]\w*", "", str(queryContent))
+
+        with open(queryDuplicated, "w") as queryFile:
+            queryFile.write(replacement)
+
+        query = queryDuplicated
+
+        return query
+        """
         with open(queryDuplicated, "r+") as queryFile:
             print("query abierta")
             queryRead = queryFile.read()
             replacement = re.sub(r" \?item[A-Z]\w*", "", str(queryRead))
             queryFile.write(replacement)
+        """
 
     def removeQuery(self, query):
         query = "{}.rq".format(query)
