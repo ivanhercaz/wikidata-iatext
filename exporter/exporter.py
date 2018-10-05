@@ -17,5 +17,5 @@ class Exporter:
 utils = utils.Utils()
 
 # To test
-exporter = Exporter()
-exporter.run()
+# exporter = Exporter()
+# exporter.run()
