@@ -29,7 +29,7 @@ class Utils:
         """
 
     def removeQuery(self, query):
-        print(query)
+        self.runCommand("rm", query)
 
     def checkCommand(self, command, **kwargs):
         if "commandName" in kwargs:
@@ -69,3 +69,6 @@ class Utils:
             except FileNotFoundError as error:
                 # improve errors with an errors.py
                 print("Error: {}".format(error))
+
+        else:
+            return run(args)
