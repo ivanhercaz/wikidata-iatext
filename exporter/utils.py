@@ -11,7 +11,6 @@ class Utils:
 
         with open(query, "r") as queryFile:
             queryContent = queryFile.read()
-            print(queryContent)
 
         replacement = re.sub(r" \?item[A-Z]\w*", "", str(queryContent))
 
@@ -30,7 +29,6 @@ class Utils:
         """
 
     def removeQuery(self, query):
-        query = "{}.rq".format(query)
         print(query)
 
     def checkCommand(self, command, **kwargs):
@@ -50,15 +48,24 @@ class Utils:
             sys.exit()
 
     def runCommand(self, *args, inputfile="", outputfile=""):
-        print(outputfile)
-        if inputfile is not "":
-            if outputfile is not "": 
+        print("outputfile: {}".format(outputfile))
+        print("inputfile: {}".format(inputfile))
+
+        if outputfile is not "":
+            if inputfile is not "": 
                 try:
                     with open(inputfile, "r") as inputfile, open(outputfile, "w") as outputfile:
+                        print(args)
                         return run(args, stdin=inputfile, stdout=outputfile)
+
                 except FileNotFoundError as error:
                     # improve errors with an errors.py
-                    print(inputfile)
-                    print(outputfile)
                     print("Error: {}".format(error))
+            try:
+                with open(outputfile, "w") as outputfile:
+                    print(args)
+                    return run(args, stdout=outputfile)
 
+            except FileNotFoundError as error:
+                # improve errors with an errors.py
+                print("Error: {}".format(error))
