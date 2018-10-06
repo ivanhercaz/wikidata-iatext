@@ -15,6 +15,11 @@ class Exporter:
         utils.runCommand("wd", "data", "--format", "ttl", inputfile="researchers/researchers", outputfile="researchers/researchers.ttl")
         utils.removeQuery(query)
 
+        query = utils.prepareQuery("publications/publications.rq")
+        utils.runCommand("wd", "sparql", query, outputfile="publications/publications")
+        utils.runCommand("wd", "data", "--format", "ttl", inputfile="publications/publications", outputfile="publications/publications.ttl")
+        utils.removeQuery(query)
+
 utils = utils.Utils()
 
 # To test
