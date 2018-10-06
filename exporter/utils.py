@@ -12,7 +12,9 @@ class Utils:
         with open(query, "r") as queryFile:
             queryContent = queryFile.read()
 
-        replacement = re.sub(r" \?item[A-Z]\w*", "", str(queryContent))
+        regex = r"(\s\?[a-z]*[A-Z]\w*)*(\sWHERE\s{)$"
+        subst = r"\2"
+        replacement = re.sub(regex, subst, queryContent, 0, re.MULTILINE)
 
         with open(queryDuplicated, "w") as queryFile:
             queryFile.write(replacement)
