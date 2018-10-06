@@ -31,6 +31,9 @@ class Utils:
     def removeQuery(self, query):
         self.runCommand("rm", query)
 
+        identifiers = re.sub("-duplicated\.rq", "", query)
+        self.runCommand("rm", identifiers)
+
     def checkCommand(self, command, **kwargs):
         if "commandName" in kwargs:
             commandName = kwargs["commandName"]
