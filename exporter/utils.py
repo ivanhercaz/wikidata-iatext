@@ -1,9 +1,26 @@
 from subprocess import run, DEVNULL
 from subprocess import CalledProcessError
 
-import re, shutil, sys
+import re, shutil, sys, time
 
 class Utils:
+    def timeElapsed(self, start):
+        elapsed = "Elapsed time from the beginning until the last process: {}".format(
+            time.strftime("%M:%S", time.gmtime(time.perf_counter() - start))
+        )
+
+        return elapsed
+
+    def timeStart(self):
+        return time.perf_counter()
+
+    def countItems(self, identifiers):
+        identifiers = identifiers.replace(".rq", "")
+        with open(identifiers, "r") as identifiersFile:
+            identifiersContent = identifiersFile.read()
+
+        return len(re.findall("Q", identifiersContent))
+
     def prepareQuery(self, query):
         queryDuplicated = re.sub(r"\.rq", "-duplicated.rq", query)
 
@@ -58,6 +75,10 @@ class Utils:
 
         if outputfile is not "":
             if inputfile is not "": 
+                if inputfile.endswith(".rq") is False: 
+                    countItems = self.countItems(inputfile)
+                    print("Items (Qxxx) in the identifiers file".format(countItems))
+
                 try:
                     with open(inputfile, "r") as inputfile, open(outputfile, "w") as outputfile:
                         print(args)
