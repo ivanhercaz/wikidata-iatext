@@ -3,7 +3,14 @@ from subprocess import CalledProcessError
 
 import re, sys, time
 
+from exporter import errors
+
 class Utils:
+    errors = errors.Errors()
+
+    GREEN = "\x1b[1;37;42m"
+    ENDC = "\x1b[0m"
+
     def timeElapsed(self, start):
         elapsed = "Elapsed time from the beginning until the last process: {}".format(
             time.strftime("%M:%S", time.gmtime(time.perf_counter() - start))
@@ -21,7 +28,8 @@ class Utils:
                 identifiersContent = identifiersFile.read()
 
         except FileNotFoundError as error:
-            return "Error: {}".format(error)
+            errors = self.errors.fileNotFound(error)
+            print(errors)
 
         return len(re.findall("Q", identifiersContent))
 
@@ -56,10 +64,14 @@ class Utils:
         try:
             run(command, stdout=DEVNULL)
 
-            print("{} installed".format(commandName))
+            print("> {} {} {} installed".format(
+                self.GREEN,
+                commandName,
+                self.ENDC
+            ))
 
         except FileNotFoundError:
-            print("Error: probably {} isn't installed.".format(commandName))
+            self.errors.commandNotFound(commandName)
             sys.exit()
 
     def runCommand(self, *args, inputfile="", outputfile=""):
