@@ -28,8 +28,7 @@ class Utils:
                 identifiersContent = identifiersFile.read()
 
         except FileNotFoundError as error:
-            errors = self.errors.fileNotFound(error)
-            print(errors)
+            return self.errors.fileNotFound(error)
 
         return len(re.findall("Q", identifiersContent))
 
@@ -50,9 +49,12 @@ class Utils:
 
     def removeQuery(self, query):
         self.runCommand("rm", query)
+        print("Duplicated query ({}) removed.".format(query))
 
         identifiers = re.sub("-duplicated\.rq", "", query)
-        self.runCommand("rm", identifiers)
+        print("Identifiers file ({}) removed.".format(identifiers))
+
+        return self.runCommand("rm", identifiers)
 
     def checkCommand(self, command, **kwargs):
         if "commandName" in kwargs:
@@ -72,15 +74,10 @@ class Utils:
 
         except FileNotFoundError:
             self.errors.commandNotFound(commandName)
-            sys.exit()
 
     def runCommand(self, *args, inputfile="", outputfile=""):
         if outputfile is not "":
-            print("Output file: {}".format(outputfile))
-
             if inputfile is not "":
-                print("Input file: {}".format(inputfile))
-
                 if inputfile.endswith(".rq") is False: 
                     countItems = self.countItems(inputfile)
                     print("Items (Qxxx) in the identifiers file ({}): {} items".format(inputfile, countItems))
@@ -90,15 +87,13 @@ class Utils:
                         return run(args, stdin=inputfile, stdout=outputfile)
 
                 except FileNotFoundError as error:
-                    # improve errors with an errors.py
-                    return "Error: {}".format(error)
+                    return self.errors.fileNotFound(error)
             try:
                 with open(outputfile, "w") as outputfile:
                     return run(args, stdout=outputfile)
 
             except FileNotFoundError as error:
-                # improve errors with an errors.py
-                print("Error: {}".format(error))
+                return self.errors.fileNotFound(error)
 
         else:
             return run(args)
