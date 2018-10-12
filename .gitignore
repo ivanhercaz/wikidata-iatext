@@ -1,0 +1,7 @@
+*.pyc
+exporter/bin
+exporter/include
+exporter/lib
+exporter/lib64
+exporter/pyvenv.cfg
+exporter/__pycache__
