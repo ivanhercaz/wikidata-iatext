@@ -44,6 +44,7 @@ La fase uno terminó con la creación de los elementos para los 52 investigadore
 La fase dos terminó con 923-1079 elementos correspondientes a las publicaciones de los miembros del IATEXT. Además, durante esta fase han sido creados elementos que no están relacionados directamente con el IATEXT. Por ej., revistas científicas, obras coordinadas por investigadores externos y supervisores doctorales, entre otros.
 
  - En los archivos [``researchers.csv``](researchers/researchers.csv) y [``publications.csv``](publications/publications.csv) están los resultados.
+ - Los elementos trabajados están en formato RDF/Turtle (.ttl) en [``researchers.ttl``](researchers/researchers.ttl) y [``publications.ttl``](publications/publications.ttl).
  - En el apartado *[Resultados](https://wikidata.org/wiki/User:Iván_Hernández_Cazorla/IATEXT#Results)* del informe final en Wikidata hay dos tablas que comprueban cada día si hay nuevos elementos que reunan las condiciones de la consulta SPARQL introducida. Probablemente en un futuro haya más elementos de los que se han elaborado en este proyecto.
 
 #### Problemas principales
@@ -61,7 +62,11 @@ En resumen, el mayor problema ha sido la ausencia de una base de datos o un repo
 
 ### Financiación
 
-Este proyecto ha sido financiado y promovido por el Instituto de Análisis y Aplicaciones Textuales (IATEXT) de la Universidad de Las Palmas de Gran Canaria.
+Este proyecto ha sido financiado y promovido por el [Instituto de Análisis y Aplicaciones Textuales](http://iatext.ulpgc.es) (IATEXT) de la [Universidad de Las Palmas de Gran Canaria](https://ulpgc.es).
+
+### Agradecimientos
+
+Me gustaría agradecer a [Maxime Lathuilière](https://github.com/maxlath) (maxlath) por el desarrollo de la interfaz de línea de comandos que ha facilitado la exportación de los elementos trabajados al formato RDF/Turtle.
 
 ### Licencia
 
